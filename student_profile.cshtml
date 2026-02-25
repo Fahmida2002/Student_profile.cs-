@@ -1,0 +1,37 @@
+model List<Student_Profile.Models.Student_profile> 
+@model Student_Profile.Models.Student_profile  
+@{
+    ViewData["Title"] = "Student Profile";
+}
+
+<h2>Student Profile Page</h2>
+
+@if (Model != null)
+{
+    <div style="border:1px solid black; padding:20px; width:400px;">
+        <p><strong>ID:</strong> @Model.Id</p>
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Age:</strong> @Model.Age</p>
+        <p><strong>Department:</strong> @Model.Department</p>
+        <p><strong>CGPA:</strong> @Model.CGPA</p>
+
+        <hr />
+
+        @if (Model.CGPA >= 3.75)
+        {
+            <p style="color:green;"><strong>Result:</strong> Excellent Student</p>
+        }
+        else if (Model.CGPA >= 3.00)
+        {
+            <p style="color:blue;"><strong>Result:</strong> Good Student</p>
+        }
+        else
+        {
+            <p style="color:red;"><strong>Result:</strong> Needs Improvement</p>
+        }
+    </div>
+}
+else
+{
+    <p style="color:red;">No student data found.</p>
+}
